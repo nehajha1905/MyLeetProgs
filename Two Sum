@@ -4,22 +4,25 @@ You may assume that each input would have exactly one solution, and you may not 
 
 You can return the answer in any order.*/
 
+
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer,Integer> mymap=new HashMap<>();
+        HashMap<Integer,Integer> mymap=new HashMap<>();   //to implement in O(n)
         for(int i=0;i<(nums.length);i++)
         {
-            int res=target-nums[i];
-            if(mymap.containsKey(res))
+            //a and b are elements in nums and c is target
+            int res=target-nums[i]; //changing form a+b=c to b=c-a 
+            if(mymap.containsKey(res))    //hashmap functions to check elem is available
             {
-               return new int[]{mymap.get(res),i};
+               return new int[]{mymap.get(res),i};  //returns the index of elem got and the
+                //initial value of indices for a
             }
             else
             {
-                mymap.put(nums[i],i);
+                mymap.put(nums[i],i); //if elem repeats put the elem at index i (already traversed)
             }
         }
-        return new int[] {};
+        return new int[] {};  //if not applicable return empty array
     }
     
 }
